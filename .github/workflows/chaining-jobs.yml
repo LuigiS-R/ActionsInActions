@@ -1,0 +1,21 @@
+name: Chaining Jobs Workflow
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      inputOne:
+        description: enter input one
+        required: true
+        type: string
+jobs:
+  firstJob:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "firstJob is running"
+  secondJob:
+    runs-on: ubuntu-latest
+    needs: firstJob
+    steps:
+      - run: echo "secondJob is running"

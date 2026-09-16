@@ -11,6 +11,7 @@ jobs:
           echo "Running the first job of this workflow"
           echo "env=my-env" >> "$GITHUB_ENV"
       - name: Displaying env
-        run: echo "env value: ${{env.env}}"
+        run: |
+          echo "env value: ${{env.env}}"
         
       
